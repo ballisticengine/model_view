@@ -2,23 +2,23 @@
 #define	MODELVIEW_HPP
 
 #include <iostream>
+#include <SDL2/SDL.h>
 
-#include "loaders/LoaderXML.hpp"
-#include "modelview.hpp"
-#include "renderer.hpp"
+#include "libload/LibLoad.hpp"
+#include "ModelViewRenderingManager.hpp"
+#include "renderer/RendererInterface.hpp"
+
 
 using namespace std;
 
-#include <SDL2/SDL.h>
-
 class ModelView {
-    static SDL_Surface *screen;
-    static SDL_Renderer* displayRenderer;
-    static SDL_Window *window;
-    static Renderer *r;
+     SDL_Surface *screen;
+     SDL_Renderer* displayRenderer;
+     SDL_Window *window;
+    ModelViewRenderingManager *rendering;
     bool exit;
 public:
-    static void initWindow();
+    void initWindow();
     void eventLoop();
     ModelView();
     ~ModelView();
