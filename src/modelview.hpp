@@ -7,6 +7,7 @@
 #include "libload/LibLoad.hpp"
 #include "ModelViewRenderingManager.hpp"
 #include "renderer/RendererInterface.hpp"
+#include "entities/pointlight.hpp"
 
 
 using namespace std;
@@ -17,6 +18,7 @@ class ModelView {
      SDL_Window *window;
     ModelViewRenderingManager *rendering;
     bool exit;
+    PointLight light;
 public:
     void initWindow();
     void eventLoop();

@@ -4,8 +4,6 @@
 #include "types/shape.hpp"
 
 
-//Renderer *ModelView::r = 0;
-
 void ModelView::initWindow() {
     LibLoad::getInstance()->setWD("../ballistic_engine/bin");
     LibLoad::getInstance()->discoverLoaders();
@@ -16,6 +14,11 @@ void ModelView::initWindow() {
     rendering->setRenderer(ri);
     
     ri->init(800, 600, 0);
+    
+    
+    light.setAllColors(ColorRGBA(1,1,1,1));
+    EngineState::getInstance()->setPtr("light", &light);
+    
     
     string file_name =  EngineState::getInstance()->getString("model");
     Loader *loader = (Loader *)LibLoad::getInstance()->getLoaderByExtension(Utils::getExt(file_name));
